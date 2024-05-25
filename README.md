@@ -15,6 +15,7 @@ Medicine Tracker is a web application designed to help patients and doctors mana
 
 ## Project Structure
 
+```
 your_project/
 │
 ├── app.py
@@ -33,6 +34,7 @@ your_project/
 ├── insert_data.py
 ├── insert_doctors.py
 └── secret.key
+```
 
 ## Installation
 
