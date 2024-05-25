@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Admin Dashboard</h1>
+        <form method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="patient_id">Patient ID:</label>
+                <input type="text" class="form-control" id="patient_id" name="patient_id">
+            </div>
+            <div class="form-group">
+                <label for="date_from">Date From:</label>
+                <input type="date" class="form-control" id="date_from" name="date_from">
+            </div>
+            <div class="form-group">
+                <label for="date_to">Date To:</label>
+                <input type="date" class="form-control" id="date_to" name="date_to">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Filter</button>
+        </form>
+        <table class="table table-striped mt-4">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Patient ID</th>
+                    <th>Drug</th>
+                    <th>Dosage</th>
+                    <th>Date and Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in entries %}
+                <tr>
+                    <td>{{ entry[0] }}</td>
+                    <td>{{ entry[1] }}</td>
+                    <td>{{ entry[2] }}</td>
+                    <td>{{ entry[3] }}</td>
+                    <td>{{ entry[4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

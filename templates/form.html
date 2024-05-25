@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter Drug and Dosage</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Enter Drug and Dosage</h1>
+        <form method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="drug">Drug:</label>
+                <input type="text" class="form-control" id="drug" name="drug" required>
+            </div>
+            <div class="form-group">
+                <label for="dosage">Dosage:</label>
+                <input type="text" class="form-control" id="dosage" name="dosage" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class="mt-4">
+                <ul class="list-group">
+                {% for category, message in messages %}
+                  <li class="list-group-item list-group-item-{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+          {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

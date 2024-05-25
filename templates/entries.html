@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Previous Entries</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Previous Entries</h1>
+        <ul class="list-group mt-4">
+        {% for entry in entries %}
+            <li class="list-group-item">Drug: {{ entry[2] }}, Dosage: {{ entry[3] }}, Date and Time: {{ entry[4] }}</li>
+        {% endfor %}
+        </ul>
+        <a href="{{ url_for('form') }}" class="btn btn-primary btn-block mt-4">Add New Entry</a>
+    </div>
+</body>
+</html>
