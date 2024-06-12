@@ -35,6 +35,12 @@ your_project/
 ├── insert_doctors.py
 └── secret.key
 ```
+## Screenshots
+![image](https://github.com/DoliTim/Academia/assets/121125226/694216c0-d205-49f4-adc2-12ce40aabc55)
+![image](https://github.com/DoliTim/Academia/assets/121125226/ccfd2f3f-d587-4f34-8474-d77b7fcb49fb)
+![image](https://github.com/DoliTim/Academia/assets/121125226/06a4d064-1c64-492c-9278-f34f94098bba)
+![image](https://github.com/DoliTim/Academia/assets/121125226/cf7e63b6-c437-4122-861a-a633ea0973f7)
+
 
 ## Installation
 
