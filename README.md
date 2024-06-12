@@ -58,30 +58,13 @@ source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 pip install -r requirements.txt
 ```
 
-4. Generate a secret key for encryption and save it to secret.key:
-
-```python
-from cryptography.fernet import Fernet
-
-key = Fernet.generate_key()
-with open('secret.key', 'wb') as key_file:
-    key_file.write(key)
-```
-
-5. Initialize the SQLite database and create the necessary tables:
-
-```sh
-python setup_database.py  # Create a script to initialize your database
-python insert_doctors.py  # Insert sample doctors data
-```
-
-## Usage
 
 1. Run the Flask application:
 
 ```sh
 flask run
 ```
+or python app.py
 
 2. Open your web browser and navigate to http://127.0.0.1:5000.
 
