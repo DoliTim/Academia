@@ -39,4 +39,20 @@
         {% endfor %}
     </tbody>
 </table>
+<<h1 class="text-center">Add Prescription</h1>
+<form method="post" action="{{ url_for('add_prescription') }}">
+    <div class="form-group">
+        <label for="zdravilo_ime">Medicine Name:</label>
+        <input type="text" class="form-control" id="zdravilo_ime" name="zdravilo_ime" required placeholder="Enter medicine name">
+    </div>
+    <div class="form-group">
+        <label for="patient_id">Patient ID:</label>
+        <input type="text" class="form-control" id="patient_id" name="patient_id" required placeholder="Enter patient ID">
+    </div>
+    <div class="form-group">
+        <label for="navodila_za_odmerjanje">Dosage Instructions:</label>
+        <textarea id="navodila_za_odmerjanje" name="navodila_za_odmerjanje" class="form-control" required placeholder="Enter dosage instructions"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Prescription</button>
+</form>
 {% endblock %}

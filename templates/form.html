@@ -32,3 +32,25 @@
     </div>
 </body>
 </html>
+
+{% block content %}
+<h1 class="text-center">Your Prescriptions</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Medicine Name</th>
+            <th>Date Issued</th>
+            <th>Dosage Instructions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for recept in recepti %}
+        <tr>
+            <td>{{ recept.zdravilo.Zdravilo }}</td>
+            <td>{{ recept.Datum_izdaje }}</td>
+            <td>{{ recept.Navodila_za_odmerjanje }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

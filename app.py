@@ -3,6 +3,7 @@ import sqlite3
 from datetime import datetime
 from cryptography.fernet import Fernet
 
+
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Change this to a strong secret key
 
@@ -134,7 +135,37 @@ def doctor_dashboard():
     conn.close()
 
     return render_template('doctor_dashboard.html', entries=entries)
+@app.route('/add_prescription', methods=['POST'])
+def add_prescription():
+    try:
+        datum_izdaje = datetime.now()
+        zdravilo_ime = request.form['zdravilo_ime']
+        patient_id = request.form['patient_id']
+        navodila_za_odmerjanje = request.form['navodila_za_odmerjanje']
+        doctor_id = session.get('doctor_id')
 
+        # Check if medicine exists, else insert
+        medicine = Zdravila.query.filter_by(Zdravilo=zdravilo_ime).first()
+        if not medicine:
+            medicine = Zdravila(Zdravilo=zdravilo_ime)
+            db.session.add(medicine)
+            db.session.commit()
+        
+        novi_recept = Recepti(
+            Datum_izdaje=datum_izdaje,
+            Zdravila_id=medicine.Zdravila_id,
+            patient_id=patient_id,
+            Zdravstveni_Delavci_id=doctor_id,
+            Navodila_za_odmerjanje=navodila_za_odmerjanje
+        )
+        db.session.add(novi_recept)
+        db.session.commit()
+        flash('Prescription successfully added', 'success')
+    except KeyError as e:
+        flash(f'Missing field: {str(e)}', 'danger')
+    except Exception as e:
+        flash(f'An error occurred: {str(e)}', 'danger')
+    return redirect(url_for('doctor_dashboard'))
 # Route to display form to enter drug and dosage
 @app.route('/form', methods=['GET', 'POST'])
 def form():
